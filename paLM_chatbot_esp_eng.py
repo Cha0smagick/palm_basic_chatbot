@@ -7,7 +7,7 @@ def translate_text(text, target_language='en'):
     return translation.text
 
 def main():
-    palm.configure(api_key='AIzaSyCezVerubEzQc9JHz3V8hofpAlSIJXGxFQ')
+    palm.configure(api_key='BARD_API_KEY')
 
     # Seleccionar el modelo que admite la generación de texto
     models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
