@@ -1,9 +1,9 @@
 import streamlit as st
-from translate import Translator
+from deep_translator import GoogleTranslator
 import google.generativeai as palm
 import re
 
-# L.A.U.R.A: Lingüista Artificial Unificada de Respuestas Automaticas
+# L.A.U.R.A : Lingüista Artificial Unificada de Respuestas Automaticas
 
 def clean_text(text):
     # Clean punctuation and special characters using regular expressions
@@ -11,13 +11,9 @@ def clean_text(text):
     return cleaned_text
 
 def translate_text(text, target_language='en'):
-    try:
-        translator = Translator(to_lang=target_language)
-        translation = translator.translate(text)
-        return translation
-
-    except Exception as e:
-        return f"Error: {e}\nDisculpa, soy una inteligencia artificial que aún se encuentra en desarrollo y está en fase alfa. En este momento no puedo responder a tu pregunta adecuadamente, pero en el futuro seré capaz de hacerlo."
+    translator = GoogleTranslator(source='auto', target=target_language)
+    translation = translator.translate(text)
+    return translation
 
 def generate_response(cleaned_input, model):
     try:
