@@ -51,7 +51,7 @@ def generate_response(cleaned_input, model):
 
 def main():
     st.title("Chatbot INIF - L.A.U.R.A.")
-    palm.configure(api_key='AIzaSyCezVerubEzQc9JHz3V8hofpAlSIJXGxFQ')
+    palm.configure(api_key='your_google_api_key')
 
     # Select the model that supports text generation
     models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
